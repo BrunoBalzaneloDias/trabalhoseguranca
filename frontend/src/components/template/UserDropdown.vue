@@ -1,10 +1,13 @@
 <template>
     <div class="user-dropdown">
         <div class="user-button">
-            <span>{{ user.name }}</span>
-            <i class="fa fa-angle-down"></i>
+            <span>{{ user.name }} </span> 
+             <i class="fa fa-angle-down"> </i>
         </div>
         <div class="user-dropdown-content">
+            <router-link to="/users">
+                <i class="fa fa-users"></i> Usuários
+            </router-link>
             <a href @click.prevent="logout"><i class="fa fa-sign-out"></i> Sair</a>
         </div>
     </div>
@@ -42,6 +45,10 @@ export default {
         font-weight: 100;
         height: 100%;
         padding: 0px 20px;
+    }
+
+    .user-button > i {
+        margin-left: 5px;
     }
 
     .user-dropdown:hover {

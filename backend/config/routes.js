@@ -13,4 +13,7 @@ module.exports = app => {
         .all(app.config.passport.authenticate())
         .put(app.api.user.save)
         .get(app.api.user.getById)
+
+    app.route('/image')
+        .post(app.api.image.save) 
 }

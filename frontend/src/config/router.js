@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 
 import Home from '@/components/home/Home'
 import Auth from '@/components/auth/Auth'
+import Users from '@/components/users/Users'
+import User from '@/components/users/User'
 
 //import { userKey } from '@/global'
 
@@ -16,6 +18,14 @@ const routes = [{
     name: 'auth',
     path: '/auth',
     component: Auth
+}, {
+    name: 'user',
+    path: '/users/:id',
+    component: User
+}, {
+    name: 'users',
+    path: '/users',
+    component: Users
 }]
 
 const router = new VueRouter({

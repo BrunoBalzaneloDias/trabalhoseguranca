@@ -1,4 +1,0 @@
-vamo fala tambem quais paginas tem neh 
-
-foram implementadas as páginas de login na aplicação e a de 
-cadastro de usuários e a página inicial do cliente ao logar na aplicação
