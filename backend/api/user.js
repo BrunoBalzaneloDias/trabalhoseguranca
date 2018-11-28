@@ -1,4 +1,6 @@
 const bcrypt = require('bcrypt-nodejs')
+const crypto = require('crypto')
+
 
 module.exports = app => {
     const { existsOrError, notExistsOrError, equalsOrError } = app.api.validation
@@ -31,6 +33,7 @@ module.exports = app => {
 
         user.password = encryptPassword(user.password)
         delete user.confirmPassword
+        user.chave = crypto.randomBytes(16)
 
         if(user.id) {
             app.db('users')

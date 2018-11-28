@@ -15,5 +15,15 @@ module.exports = app => {
         .get(app.api.user.getById)
 
     app.route('/image')
-        .post(app.api.image.save) 
+        .post(app.api.image.save)
+        
+    app.route('/image/:id')
+        .get(app.api.image.get) 
+
+    app.route('/compartilha')
+        .post(app.api.compartilhado.save)
+        
+    app.route('/compartilha/:idDono/:idPage')
+        .get(app.api.compartilhado.get)
+   
 }

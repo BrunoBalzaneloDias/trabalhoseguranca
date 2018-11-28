@@ -10,12 +10,12 @@ module.exports = app => {
         //console.log(req.body)
 
 
-        mkdirp.mkdirp('img/uploads/' + req.body.idDono+'/')
+        /*mkdirp.mkdirp('img/uploads/' + req.body.idDono+'/')
         const iv = crypto.randomBytes(16)
         const read = fs.createReadStream(req.body.path)
         const write = fs.createWriteStream('img/'+req.body.path)
         const cipher = crypto.createCipheriv(alg, passwd, iv)
-        read.pipe(cipher).pipe(write)
+        read.pipe(cipher).pipe(write)*/
 
 
         const arquivo = { ...req.body }
@@ -26,6 +26,13 @@ module.exports = app => {
                 .catch(err => res.status(500).send(err))
     }
 
+    const get = (req, res) => {
+        app.db('arquivo')
+            .select('id', 'idDono', 'path')
+            .where({ idDono: req.params.id })
+            .then(user => res.json(user))
+            .catch(err => res.status(500).send(err))
+    }
 
-    return { save }
+    return { save, get }
 }
